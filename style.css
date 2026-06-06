@@ -16,106 +16,116 @@ h1, h2, h3 {
   margin: 0;
 }
 
+
 /* =========================
-   TOP BAR
+   DROPDOWN ICONS NEAR SEARCH
 ========================= */
-.top-bar {
+/* =========================
+   TOP BAR PREMIUM ESTILO CARTIER
+========================= */
+
+.top-bar-premium {
   width: 100%;
-  position: fixed;
-  top: 0;
-  padding: 12px 30px;
+  padding: 18px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
-  z-index: 9999;
-}
 
-.top-left .icon {
-  font-size: 28px;
-  font-weight: 200;
-  margin-right: 18px;
-  transition: 0.25s ease;
-}
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(8px);
 
-.top-left .icon:hover {
-  color: #d4af37;
-  transform: scale(1.15);
-}
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 
-.search-box {
-  padding: 6px 12px;
-  border-radius: 5px;
-  border: none;
-}
-
-.menu-icon {
-  font-size: 30px;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-.menu-icon:hover {
-  color: #d4af37;
-  transform: scale(1.2);
-}
-
-/* =========================
-   SIDE MENU
-========================= */
-.overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  z-index: 9000;
+  z-index: 9999;
+
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
 }
 
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 280px;
-  height: 100vh;
-  background: rgba(10,10,10,0.6);
+/* Hover sutil */
+.top-bar-premium:hover {
+  background: rgba(0,0,0,0.55);
   backdrop-filter: blur(12px);
-  padding: 40px 25px;
-  transition: 0.35s ease;
-  z-index: 9500;
 }
 
-.side-menu.open {
-  right: 0;
+/* -------------------------
+   ICONOS IZQUIERDA
+------------------------- */
+.top-left-premium {
+  display: flex;
+  gap: 18px;
 }
 
-.side-menu ul {
-  list-style: none;
-  padding: 0;
+.top-left-premium .material-symbols-outlined {
+  font-size: 24px;
+  color: #ccc;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
-.side-menu ul li a {
-  display: block;
-  padding: 12px 18px;
-  margin-bottom: 12px;
-  border-radius: 8px;
+.top-left-premium .material-symbols-outlined:hover {
+  color: #d4af37;
+  transform: scale(1.12);
+}
+
+/* -------------------------
+   LOGO / TÍTULO PREMIUM
+------------------------- */
+.logo-premium {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #f5f5f5;
+  text-align: center;
+  flex: 1;
+  pointer-events: none;
+}
+
+/* -------------------------
+   DERECHA: BUSCADOR + IDIOMA
+------------------------- */
+
+.top-right-premium {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.search-box-premium {
+  padding: 6px 14px;
+  border-radius: 40px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.35);
+  color: #eee;
+  width: 150px;
+  transition: 0.3s;
+}
+
+.search-box-premium:focus,
+.search-box-premium:hover {
+  width: 190px;
+  border-color: rgba(255,255,255,0.4);
+  outline: none;
+}
+
+.language-selector-premium {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: none;
   background: rgba(255,255,255,0.06);
+  color: white;
+  cursor: pointer;
   transition: 0.3s ease;
 }
 
-.side-menu ul li a:hover {
-  background: rgba(212,175,55,0.25);
-  transform: translateX(3px);
-  box-shadow: 0 0 10px rgba(212,175,55,0.3);
+.language-selector-premium:hover {
+  background: rgba(255,255,255,0.18);
 }
 
-/* ============================================
-        MENÚ PREMIUM HAMBURGUESA
-============================================ */
-
+/* =========================
+   PREMIUM HAMBURGER MENU
+========================= */
 .menu-wrapper {
   position: relative;
   display: inline-block;
@@ -123,7 +133,6 @@ h1, h2, h3 {
   margin-right: 15px;
 }
 
-/* ICONO DORADO PREMIUM */
 .menu-icon-premium {
   width: 26px;
   height: 22px;
@@ -141,36 +150,32 @@ h1, h2, h3 {
   transition: 0.3s ease;
 }
 
-/* Al hover se iluminan */
 .menu-icon-premium:hover span {
   transform: translateX(3px);
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.9);
 }
 
-/* MENÚ DESPLEGABLE */
 .dropdown-menu-premium {
   position: absolute;
   top: 32px;
   left: 0;
   width: 260px;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0,0,0,0.55);
   backdrop-filter: blur(6px);
   padding: 12px 0;
   border-radius: 6px;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(10px);
-  transition: 0.35s ease;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* MOSTRAR MENÚ AL HOVER */
 .menu-wrapper:hover .dropdown-menu-premium {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(3px);
 }
 
-/* SECCIONES DEL MENÚ */
 .menu-section {
   padding: 5px 0;
   border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -190,24 +195,21 @@ h1, h2, h3 {
   font-size: 16px;
   letter-spacing: 0.5px;
   text-decoration: none;
-  transition: 0.25s ease;
+  transition: 0.25s ease, background 0.35s ease, transform 0.25s ease;
   background: rgba(0,0,0,0.3);
   margin-bottom: 4px;
   border-radius: 4px;
 }
 
-/* HOVER DE LOS ITEMS — negro sólido + desplazamiento */
 .menu-section a:hover {
   background: rgba(0,0,0,0.85);
   transform: translateX(3px);
 }
 
-/* Ajuste para SERVIZIO CLIENTI */
 .menu-section.secondary a {
   font-size: 13px;
   opacity: 0.9;
 }
-
 
 /* =========================
    VIDEO HERO
@@ -294,7 +296,7 @@ h1, h2, h3 {
 }
 
 /* =========================
-   PANELS 5–8
+   PANELS
 ========================= */
 .panel {
   position: relative;
@@ -326,94 +328,6 @@ h1, h2, h3 {
   height: 70px;
   background: linear-gradient(to bottom, #d4af37, #8a6c1f);
   border-radius: 10px;
-}
-
-/* ============================================
-        MENÚ PREMIUM HAMBURGUESA
-============================================ */
-
-.menu-wrapper {
-  position: relative;
-  display: inline-block;
-  z-index: 9999;
-  margin-right: 15px;
-}
-
-/* ICONO DORADO PREMIUM */
-.menu-icon-premium {
-  width: 26px;
-  height: 22px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.menu-icon-premium span {
-  display: block;
-  height: 3px;
-  background: linear-gradient(90deg, #d4af37, #f0e1a0);
-  border-radius: 10px;
-  transition: 0.3s ease;
-}
-
-.menu-icon-premium:hover span {
-  transform: translateX(3px);
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.9);
-}
-
-/* MENÚ DESPLEGABLE */
-.dropdown-menu-premium {
-  position: absolute;
-  top: 32px;
-  left: 0;
-  width: 260px;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  padding: 12px 0;
-  border-radius: 6px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-/* SECCIONES DEL MENÚ */
-.menu-section {
-  padding: 5px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.menu-section.secondary {
-  border-bottom: none;
-  padding-top: 12px;
-}
-
-.menu-section a {
-  display: block;
-  padding: 12px 18px;
-  width: 100%;
-  color: white;
-  font-family: "Playfair Display", serif;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  transition: 0.25s ease, background 0.35s ease, transform 0.25s ease;
-  background: rgba(0,0,0,0.3);
-  margin-bottom: 4px;
-  border-radius: 4px;
-}
-
-/* HOVER DE LOS ITEMS — negro sólido + desplazamiento */
-.menu-section a:hover {
-  background: rgba(0,0,0,0.85);
-  transform: translateX(3px);
-}
-
-/* Ajuste para SERVIZIO CLIENTI */
-.menu-section.secondary a {
-  font-size: 13px;
-  opacity: 0.9;
 }
 
 /* =========================

@@ -1,83 +1,96 @@
-document.addEventListener('DOMContentLoaded', () => {
+// =========================
+// MENÚ HAMBURGUESA PREMIUM
+// =========================
 
-  /* =============== PANEL FADE / PARALLAX =============== */
-  const panels = document.querySelectorAll('.panel-img');
+const menuWrapper = document.querySelector('.menu-wrapper');
+const menuIcon = document.querySelector('.menu-icon-premium');
+const dropdownMenu = document.querySelector('.dropdown-menu-premium');
 
-  function fadePanels() {
-    panels.forEach(img => {
-      const rect = img.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-      const opacity = 1 - (rect / windowHeight);
-      img.style.opacity = Math.max(0, Math.min(1, opacity));
-      img.style.transform = `translateY(${(1 - opacity) * 40}px)`;
-    });
-  }
-
-  window.addEventListener('scroll', fadePanels);
-  fadePanels();
-
-  /* =============== MENÚ LATERAL =============== */
-  const menuBtn = document.querySelector('.menu-icon');
-  const closeBtn = document.querySelector('.close-menu');
-  const sideMenu = document.querySelector('.side-menu');
-  const overlay = document.querySelector('.overlay');
-
-  function openMenu() {
-    sideMenu.classList.add('open');
-    overlay.style.display = 'block';
-  }
-
-  function closeMenuFunc() {
-    sideMenu.classList.remove('open');
-    overlay.style.display = 'none';
-  }
-
-  menuBtn.addEventListener('click', openMenu);
-  closeBtn.addEventListener('click', closeMenuFunc);
-  overlay.addEventListener('click', closeMenuFunc);
-
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const menuWrapper = document.querySelector('.menu-wrapper');
-  const dropdownMenu = document.querySelector('.dropdown-menu-premium');
-  const menuIcon = document.querySelector('.menu-icon-premium');
-
-  let menuOpen = false;
-  let hoverTimeout;
-
-  // FUNCION PARA ABRIR EL MENÚ
-  function openMenu() {
-    clearTimeout(hoverTimeout);
+if (menuWrapper && menuIcon && dropdownMenu) {
+  menuWrapper.addEventListener('mouseenter', () => {
     dropdownMenu.style.opacity = '1';
     dropdownMenu.style.pointerEvents = 'auto';
     dropdownMenu.style.transform = 'translateY(3px)';
-    menuOpen = true;
-  }
+  });
 
-  // FUNCION PARA CERRAR EL MENÚ
-  function closeMenu() {
+  menuWrapper.addEventListener('mouseleave', () => {
     dropdownMenu.style.opacity = '0';
     dropdownMenu.style.pointerEvents = 'none';
     dropdownMenu.style.transform = 'translateY(-10px)';
-    menuOpen = false;
-  }
+  });
+}
 
-  // ABRIR AL PASAR EL CURSOR SOBRE EL ICONO
-  menuIcon.addEventListener('mouseenter', openMenu);
+// =========================
+// SIDE MENU LATERAL (si existe)
+// =========================
 
-  // MANTENER ABIERTO AL PASAR CURSOR SOBRE EL MENÚ
-  dropdownMenu.addEventListener('mouseenter', openMenu);
+const sideMenu = document.querySelector('.side-menu');
+const overlay = document.querySelector('.overlay');
+const openMenuBtn = document.querySelector('.open-side-menu');
+const closeMenuBtn = document.querySelector('.close-side-menu');
 
-  // CERRAR EL MENÚ CUANDO SE SALE DEL ICONO Y DEL MENÚ
-  menuWrapper.addEventListener('mouseleave', () => {
-    hoverTimeout = setTimeout(closeMenu, 300); // retraso suave de 0.3s
+if (sideMenu && overlay) {
+  const openMenu = () => {
+    sideMenu.classList.add('open');
+    overlay.style.display = 'block';
+  };
+
+  const closeMenu = () => {
+    sideMenu.classList.remove('open');
+    overlay.style.display = 'none';
+  };
+
+  if (openMenuBtn) openMenuBtn.addEventListener('click', openMenu);
+  if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+
+  overlay.addEventListener('click', closeMenu);
+}
+
+// =========================
+// CATEGORÍAS – efecto hover
+// =========================
+
+const catBoxes = document.querySelectorAll('.cat-box');
+
+catBoxes.forEach(box => {
+  const img = box.querySelector('img');
+  const title = box.querySelector('.hover-title');
+
+  box.addEventListener('mouseenter', () => {
+    img.style.opacity = '0';
+    title.style.opacity = '1';
   });
 
-  // CERRAR MENÚ SI HACE CLICK FUERA
-  document.addEventListener('click', (e) => {
-    if (!menuWrapper.contains(e.target)) {
-      closeMenu();
-    }
+  box.addEventListener('mouseleave', () => {
+    img.style.opacity = '1';
+    title.style.opacity = '0';
   });
 });
+
+// =========================
+// SCROLL ANIMATIONS PARA PANELS
+// =========================
+
+const panels = document.querySelectorAll('.panel');
+
+const revealOnScroll = () => {
+  const triggerBottom = window.innerHeight / 1.2;
+
+  panels.forEach(panel => {
+    const panelTop = panel.getBoundingClientRect().top;
+
+    if (panelTop < triggerBottom) {
+      panel.classList.add('show-panel');
+    } else {
+      panel.classList.remove('show-panel');
+    }
+  });
+};
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+// =========================
+// VIDEO HERO (opcional)
+// =========================
+// El video ya funciona solo con HTML5.
