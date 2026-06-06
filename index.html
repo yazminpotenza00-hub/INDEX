@@ -3,37 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scroll Imágenes y Texto</title>
+<title>LABORATORIO ORAFO QUARANTA</title>
+
+<!-- Fuentes profesionales -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+<!-- Material Icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+<!-- CSS externo -->
 <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
-<div class="panels-container">
-  <section class="panel" data-img="foto 1.jpeg">
-    <div class="panel-content">
-      <h1>Sección 1</h1>
-      <p>Descripción de la sección 1</p>
-    </div>
-    <img class="panel-img" src="foto 1.jpeg" alt="">
-  </section>
+<!-- =========================
+     TOP BAR
+========================= -->
+<header class="top-bar">
+  
+  <!-- MENÚ PREMIUM -->
+  <div class="menu-wrapper">
+      <div class="menu-icon-premium">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
 
-  <section class="panel" data-img="foto 2.jpeg">
-    <div class="panel-content">
-      <h1>Sección 2</h1>
-      <p>Descripción de la sección 2</p>
-    </div>
-    <img class="panel-img" src="foto 2.jpeg" alt="">
-  </section>
+      <div class="dropdown-menu-premium">
+          
+          <div class="menu-section">
+              <a href="#">ANELLI</a>
+              <a href="#">COLLANE</a>
+              <a href="#">BRACCIALI</a>
+              <a href="#">ORECCHINI</a>
+              <a href="#">TUTTI I GIOIELLI</a>
+          </div>
 
-  <section class="panel" data-img="foto 3.jpeg">
-    <div class="panel-content">
-      <h1>Sección 3</h1>
-      <p>Descripción de la sección 3</p>
-    </div>
-    <img class="panel-img" src="foto 3.jpeg" alt="">
-  </section>
+          <div class="menu-section secondary">
+              <a href="#">SERVIZIO CLIENTI</a>
+              <a href="#">FAQ</a>
+              <a href="#">Guida alle misure</a>
+              <a href="#">Spedizioni e Resi</a>
+              <a href="#">Packaging</a>
+              <a href="#">Cura dei Gioielli</a>
+              <a href="#">Metodi di Pagamento</a>
+              <a href="#">Servizio Clienti</a>
+          </div>
+
+      </div>
+  </div>
+
+  <!-- ICONOS ORIGINALES -->
+  <div class="top-left">
+    <span class="material-symbols-outlined icon">location_on</span>
+    <span class="material-symbols-outlined icon">mail</span>
+    <span class="material-symbols-outlined icon">call</span>
+  </div>
+
+  <div class="top-right">
+    <input type="text" placeholder="Buscar..." class="search-box">
+  </div>
+
+</header>
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+<div class="overlay"></div>
+<div class="side-menu">
+  <button class="close-menu"><span class="material-symbols-outlined">close</span></button>
+  <ul>
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#">Pulseras</a></li>
+    <li><a href="#">Anillos</a></li>
+    <li><a href="#">Aritos</a></li>
+    <li><a href="#">Collares</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
 </div>
 
+<!-- =========================
+     VIDEO HERO
+========================= -->
+<section class="video-hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="video.mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+  </video>
+  <div class="video-overlay-text">
+    <h1>LABORATORIO ORAFO QUARANTA</h1>
+    <h3>La passione per gli animali dà vita a gioielli originali</h3>
+  </div>
+</section>
+
+<!-- =========================
+     CATEGORÍAS
+========================= -->
+<section class="categories-row">
+  <a href="pulseras.html" class="cat-box">
+    <img src="foto 1.jpeg" alt="Braccialetto">
+    <div class="hover-title">BRACCIALETTO</div>
+  </a>
+
+  <a href="anillos.html" class="cat-box">
+    <img src="foto 2.jpeg" alt="Anello">
+    <div class="hover-title">ANELLO</div>
+  </a>
+
+  <a href="aritos.html" class="cat-box">
+    <img src="foto 3.jpeg" alt="Orecchino">
+    <div class="hover-title">ORECCHINO</div>
+  </a>
+
+  <a href="collares.html" class="cat-box">
+    <img src="foto 4.jpeg" alt="Collana">
+    <div class="hover-title">COLLANA</div>
+  </a>
+</section>
+
+<!-- =========================
+     PANELS
+========================= -->
+
+<section class="panel enhanced">
+  <div class="panel-content decorated">
+    <div class="gold-line"></div>
+    <h1>Spillone decorativo in oro e radica</h1>
+  </div>
+  <img class="panel-img" src="foto 5.jpeg" alt="">
+</section>
+
+<section class="panel enhanced">
+  <div class="panel-content decorated">
+    <div class="gold-line"></div>
+    <h1>Anello in oro e oro bianco con onice</h1>
+  </div>
+  <img class="panel-img" src="foto 6.jpeg" alt="">
+</section>
+
+<section class="panel enhanced">
+  <div class="panel-content decorated">
+    <div class="gold-line"></div>
+    <h1>Ciondolo pendente in oro con ambra fossile</h1>
+  </div>
+  <img class="panel-img" src="foto 7.jpeg" alt="">
+</section>
+
+<section class="panel enhanced">
+  <div class="panel-content decorated">
+    <div class="gold-line"></div>
+    <h1>Croce in oro con ambra e tormalina, in stile medievale</h1>
+  </div>
+  <img class="panel-img" src="foto 8.jpeg" alt="">
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+  <p><small>Yazmin Gonzalez 2025® - All rights reserved</small></p>
+</footer>
+
+<!-- =========================
+     JS externo
+========================= -->
 <script src="script.js"></script>
 </body>
 </html>
