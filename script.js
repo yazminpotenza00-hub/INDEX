@@ -1,26 +1,24 @@
-const pics = [
-    "foto 1.jpeg",
-    "foto 2.jpeg",
-    "foto 3.jpeg"
-];
+document.addEventListener('DOMContentLoaded', () => {
+  const panels = document.querySelectorAll('.panel');
 
-let pos = 0;
-const view = document.getElementById("viewer");
+  function updateImages() {
+    const windowHeight = window.innerHeight;
 
-function nextImage() {
-    view.classList.remove("visible");
+    panels.forEach(panel => {
+      const img = panel.querySelector('.panel-img');
+      const rect = panel.getBoundingClientRect();
 
-    setTimeout(() => {
-        pos = (pos + 1) % pics.length;
-        view.src = pics[pos];
-    }, 300);
+      let visible = Math.min(Math.max(windowHeight - rect.top, 0), windowHeight);
+      let opacity = visible / windowHeight;
 
-    setTimeout(() => {
-        view.classList.add("visible");
-    }, 350);
-}
+      img.style.opacity = opacity;
 
-window.onload = () => {
-    view.classList.add("visible");
-    setInterval(nextImage, 3200);
-};
+      // efecto suave hacia arriba
+      img.style.transform = `translateY(calc(-50% + ${(1 - opacity) * 50}px))`;
+    });
+  }
+
+  window.addEventListener('scroll', updateImages);
+  window.addEventListener('resize', updateImages);
+  updateImages();
+});
