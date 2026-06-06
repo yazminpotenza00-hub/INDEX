@@ -3,97 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LABORATORIO ORAFO QUARANTA</title>
-
-<!-- Fuentes -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
-
-<!-- CSS externo -->
+<title>Scroll Imágenes y Texto</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="top-bar">
-  <div class="top-left">
-    <a href="#" class="icon"><img src="icons/instagram.svg"></a>
-    <a href="#" class="icon"><img src="icons/facebook.svg"></a>
-    <a href="mailto:contacto@ejemplo.com" class="icon"><img src="icons/mail.svg"></a>
-    <a href="tel:+540000000000" class="icon"><img src="icons/phone.svg"></a>
-    <a href="https://maps.google.com" target="_blank" class="icon"><img src="icons/map.svg"></a>
-  </div>
+<div class="panels-container">
+  <section class="panel" data-img="foto 1.jpeg">
+    <div class="panel-content">
+      <h1>Sección 1</h1>
+      <p>Descripción de la sección 1</p>
+    </div>
+    <img class="panel-img" src="foto 1.jpeg" alt="">
+  </section>
 
-  <!-- LOGO CENTRADO -->
-  <div class="top-logo">
-    <img src="logo.png" alt="Logo">
-  </div>
+  <section class="panel" data-img="foto 2.jpeg">
+    <div class="panel-content">
+      <h1>Sección 2</h1>
+      <p>Descripción de la sección 2</p>
+    </div>
+    <img class="panel-img" src="foto 2.jpeg" alt="">
+  </section>
 
-  <div class="top-right">
-    <input type="text" placeholder="Cercare..." class="search-box">
-  </div>
-</header>
-
-<section class="video-hero">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="video.mp4" type="video/mp4">
-    Tu navegador no soporta videos HTML5.
-  </video>
-
-  <div class="video-overlay-text">
-    <h1>LABORATORIO ORAFO QUARANTA</h1>
-    <h3>La passione per gli animali dà vita a gioielli originali</h3>
-  </div>
-</section>
-
-<section class="categories-row">
-  <a href="pulseras.html" class="cat-box">
-    <img src="foto 1.jpeg">
-    <div class="hover-title">BRACCIALETTO</div>
-  </a>
-
-  <a href="anillos.html" class="cat-box">
-    <img src="foto 2.jpeg">
-    <div class="hover-title">ANELLO</div>
-  </a>
-
-  <a href="aritos.html" class="cat-box">
-    <img src="foto 3.jpeg">
-    <div class="hover-title">ORECCHINO</div>
-  </a>
-
-  <a href="collares.html" class="cat-box">
-    <img src="foto 4.jpeg">
-    <div class="hover-title">COLLANA</div>
-  </a>
-</section>
-
-<section class="panel">
-  <div class="panel-content"><h1>Spillone decorativo in oro e radica</h1></div>
-  <img class="panel-img" src="foto 5.jpeg">
-</section>
-
-<section class="panel">
-  <div class="panel-content"><h1>Anello in oro e oro bianco con onice</h1></div>
-  <img class="panel-img" src="foto 6.jpeg">
-</section>
-
-<section class="panel">
-  <div class="panel-content"><h1>Ciondolo pendente in oro con ambra fossile</h1></div>
-  <img class="panel-img" src="foto 7.jpeg">
-</section>
-
-<section class="panel">
-  <div class="panel-content"><h1>Croce in oro con ambra e tormalina, in style medievale</h1></div>
-  <img class="panel-img" src="foto 8.jpeg">
-</section>
-
-<footer>
-  <p><small>Yazmin Gonzalez 2025® - All rights reserved</small></p>
-</footer>
+  <section class="panel" data-img="foto 3.jpeg">
+    <div class="panel-content">
+      <h1>Sección 3</h1>
+      <p>Descripción de la sección 3</p>
+    </div>
+    <img class="panel-img" src="foto 3.jpeg" alt="">
+  </section>
+</div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
