@@ -1,0 +1,13 @@
+<svg width="340" height="60" viewBox="0 0 960 200" xmlns="http://www.w3.org/2000/svg">
+  <text x="50%" y="50%" font-family="Playfair Display, serif" font-size="62"
+        fill="#f2f2f2" text-anchor="middle" dominant-baseline="central"
+        style="letter-spacing: 6px; font-weight: 400;">
+     LABORATORIO ORAFO
+  </text>
+
+  <text x="50%" y="78%" font-family="Playfair Display, serif" font-size="44"
+        fill="#d4cfc7" text-anchor="middle" dominant-baseline="central"
+        style="letter-spacing: 10px; font-weight: 300;">
+     QUARANTA
+  </text>
+</svg>

@@ -18,41 +18,107 @@ h1, h2, h3 {
 
 
 /* =========================
-   DROPDOWN ICONS NEAR SEARCH
+   LOGO SVG
 ========================= */
-/* =========================
-   TOP BAR PREMIUM ESTILO CARTIER
-========================= */
+.logo-svg {
+  height: 48px;
+  opacity: 0.92;
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.45));
+}
 
+/* =========================
+   LANG DROPDOWN
+========================= */
+.lang-dropdown {
+  position: relative;
+}
+
+.lang-btn {
+  background: rgba(255,255,255,0.06);
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Noto Sans";
+  transition: background 0.25s;
+}
+
+
+.lang-btn:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+.arrow-lang {
+  font-size: 20px;
+  transition: 0.25s;
+}
+
+.lang-menu {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 8px 0;
+  width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+.lang-dropdown.open .lang-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.lang-menu div {
+  padding: 10px 16px;
+  color: #eee;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.lang-menu div:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.lang-dropdown.open .arrow-lang {
+  transform: rotate(180deg);
+}
+
+
+/* =========================
+   TOP BAR PREMIUM
+========================= */
 .top-bar-premium {
-  width: 100%;
-  padding: 18px 60px;
+  width: 95%;
+  padding: 5px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(8px);
-
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(7px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
 
-  position: fixed;
+
+position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
-
   transition: background 0.4s ease, backdrop-filter 0.4s ease;
 }
 
-/* Hover sutil */
-.top-bar-premium:hover {
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(12px);
-}
 
-/* -------------------------
-   ICONOS IZQUIERDA
-------------------------- */
 .top-left-premium {
   display: flex;
   gap: 18px;
@@ -69,22 +135,11 @@ h1, h2, h3 {
   transform: scale(1.12);
 }
 
-/* -------------------------
-   LOGO / TÍTULO PREMIUM
-------------------------- */
 .logo-premium {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  letter-spacing: 2px;
-  color: #f5f5f5;
   text-align: center;
   flex: 1;
   pointer-events: none;
 }
-
-/* -------------------------
-   DERECHA: BUSCADOR + IDIOMA
-------------------------- */
 
 .top-right-premium {
   display: flex;
@@ -109,6 +164,7 @@ h1, h2, h3 {
   outline: none;
 }
 
+
 .language-selector-premium {
   padding: 5px 8px;
   border-radius: 6px;
@@ -122,6 +178,34 @@ h1, h2, h3 {
 .language-selector-premium:hover {
   background: rgba(255,255,255,0.18);
 }
+
+/* CONTENEDOR DEL LOGO */
+.logo-premium {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+/* ENLACE DEL LOGO */
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-subtitle {
+  font-family: "Playfair Display", serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-top: 4px;
+  background: linear-gradient(90deg, #d4af37, #f0e1a0);
+  -webkit-text-fill-color: transparent; /* hace que se vea el degradado */
+  -webkit-background-clip: text;
+  opacity: 0.9;
+}
+
 
 /* =========================
    PREMIUM HAMBURGER MENU
@@ -170,7 +254,7 @@ h1, h2, h3 {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.menu-wrapper:hover .dropdown-menu-premium {
+.menu-wrapper.open .dropdown-menu-premium {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(3px);
@@ -211,6 +295,28 @@ h1, h2, h3 {
   opacity: 0.9;
 }
 
+/* (tooltip estilo premium) */
+
+.tooltip {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(212, 175, 55, 0.95); /* dorado estilo premium */
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: 99999;
+}
+.tooltip.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
 /* =========================
    VIDEO HERO
 ========================= */
@@ -251,36 +357,160 @@ h1, h2, h3 {
 }
 
 /* =========================
-   CATEGORÍAS
+   CONTENEDOR DE CATEGORÍAS + CALESITA
+========================= */
+.categories-container {
+  padding: 80px 0;
+  background: #c7c7c7c9;   /* gris oscuro en lugar de negro puro */
+  text-align: center;
+}
+
+/* =========================
+   CATEGORÍAS (solo texto)
 ========================= */
 .categories-row {
+  margin-top: 55px;
   display: flex;
   justify-content: center;
-  gap: 2vw;
-  padding: 100px 0;
-  background: #000;
+  gap: 90px;
 }
 
-.cat-box {
-  width: 22vw;
-  height: 28vw;
+.cat-title {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  letter-spacing: 10px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cat-title:hover {
+  color: #d4af37;
+  transform: scale(1.1);
+}
+/* =========================
+   CALESITA ÚNICA
+========================= */
+.carousel-3d {
   position: relative;
-  border-radius: 12px;
-  overflow: hidden;
+  width: 70vw;                 /* un poco más ancho */
+  height: 20vw;                /* mantiene proporción agradable */
+  margin: auto;
+  perspective: 2200px;         /* más profundidad */
+  transform-style: preserve-3d;
+}
+
+.carousel-3d .item {
+  position: absolute;
+  width: 20%;                  /* imágenes más pequeñas y completas */
+  height: auto;                
+  max-height: 100%;
+  object-fit: contain;         /* mantiene proporción */
+  border-radius: 14px;
   cursor: pointer;
+  transition: transform 0.9s ease, opacity 0.9s ease, filter 0.9s ease, z-index 0.9s ease;
 }
 
-.cat-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.35s ease;
+/* =========================
+   POSICIONES CON PERSPECTIVA PROFUNDA
+========================= */
+
+/* Frente */
+.carousel-3d .item.pos-0 {
+  transform: translateZ(280px) scale(1.05);
+  z-index: 10;
+  opacity: 1;
+  filter: drop-shadow(0 20px 35px rgba(0,0,0,0.5));
 }
 
-.cat-box:hover img {
-  opacity: 0;
+/* IZQUIERDA */
+.carousel-3d .item.pos-1 {
+  transform: rotateY(-55deg) translateX(-300px) translateZ(60px) scale(0.9);
+  opacity: 0.75;
+  z-index: 5;
+  filter: brightness(0.85);
 }
 
+/* ATRÁS */
+.carousel-3d .item.pos-2 {
+  transform: translateZ(-280px) scale(0.75);
+  opacity: 0.4;
+  z-index: 1;
+  filter: brightness(0.6) blur(1px);
+}
+
+/* DERECHA */
+.carousel-3d .item.pos-3 {
+  transform: rotateY(55deg) translateX(300px) translateZ(60px) scale(0.9);
+  opacity: 0.75;
+  z-index: 5;
+  filter: brightness(0.85);
+}
+
+/* Hover */
+.carousel-3d .item:hover {
+  opacity: 1;
+  filter: brightness(1);
+}
+
+/* =========================
+   BLOQUE INTERMEDIO PREMIUM
+========================= */
+.premium-info {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.premium-box {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 40px 50px;
+  border-radius: 12px;
+  max-width: 700px;
+}
+
+.premium-title {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  display: inline-block;
+  line-height: 1.2;
+  cursor: default; /* para que no parezca seleccionable */
+}
+
+/* Cada letra como bloque independiente */
+.premium-title span {
+  display: inline-block;
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Luminiscencia dorada individual por letra */
+.premium-title span:hover {
+  color: #ffeaa7;
+  text-shadow: 0 0 5px #d4af37, 0 0 10px #d4af37, 0 0 15px #d4af37;
+}
+
+.premium-text {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.premium-separator {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #d4af37, transparent);
+  margin: 25px auto 0 auto;
+  border-radius: 2px;
+}
+
+
+/* =========================
+     TÍTULO – efecto hover
+========================= */
 .hover-title {
   font-size: 28px;
   position: absolute;

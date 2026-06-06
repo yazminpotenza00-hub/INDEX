@@ -24,23 +24,61 @@ TOP BAR CON SELECTOR DE IDIOMA
 ========================= -->
 <header class="top-bar-premium">
 
-  <div class="top-left-premium">
-    <span class="material-symbols-outlined">location_on</span>
-    <span class="material-symbols-outlined">mail</span>
-    <span class="material-symbols-outlined">call</span>
+  <!-- MENÚ HAMBURGUESA PREMIUM -->
+  <div class="menu-wrapper">
+    <div class="menu-icon-premium">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="dropdown-menu-premium">
+      <div class="menu-section">
+        <h1> <a href="Disenos personalizados.html"> Designe personalizate</a></h1>
+        <a href="pulseras.html">Braccialetti</a>
+        <a href="anillos.html">Anelli</a>
+        <a href="aritos.html">Orecchini</a>
+        <a href="collares.html">Collane</a>
+      </div>
+
+      <div class="menu-section secondary">
+        <a href="#">Informazioni</a>
+        <a href="#">Contatto</a>
+      </div>
+    </div>
   </div>
 
-  <!-- “Logo” refinado usando texto -->
-  <div class="logo-premium">
-    LABORATORIO ORAFO QUARANTA
-  </div>
+
+<div class="top-left-premium">
+  <span class="material-symbols-outlined" id="icon-location">location_on</span>
+  <span class="material-symbols-outlined" id="icon-mail">mail</span>
+  <span class="material-symbols-outlined" id="icon-call">call</span>
+</div>
+
+  <div id="tooltip" class="tooltip"></div>
+
+ <!-- LOGO CON ENLACE A HOME -->
+<div class="logo-premium">
+    <a href="index.html" class="logo-link">
+        <img src="logo.svg" class="logo-svg" alt="Logo Orafo Quaranta">
+        <div class="logo-subtitle">Made in Italy — Since 1937 —</div>
+    </a>
+</div>
+
 
   <div class="top-right-premium">
     <input type="text" placeholder="Buscar..." class="search-box-premium">
-    <select class="language-selector-premium">
-      <option value="it">IT</option>
-      <option value="en">EN</option>
-    </select>
+
+    <div class="lang-dropdown">
+      <button class="lang-btn">
+        IT <span class="material-symbols-outlined arrow-lang">expand_more</span>
+      </button>
+
+      <div class="lang-menu">
+        <div data-lang="it">IT — Italiano</div>
+        <div data-lang="en">EN — English</div>
+      </div>
+    </div>
   </div>
 
 </header>
@@ -55,35 +93,51 @@ TOP BAR CON SELECTOR DE IDIOMA
     Tu navegador no soporta videos HTML5.
   </video>
   <div class="video-overlay-text">
-    <h1>LABORATORIO ORAFO QUARANTA</h1>
-    <h3>La passione per gli animali dà vita a gioielli originali</h3>
   </div>
 </section>
+<!-- =========================
+     BLOQUE INTERMEDIO PREMIUM
+========================= -->
+<div class="premium-info">
+  <div class="premium-box">
+    <h2 class="premium-title">
+      <span>N</span><span>u</span><span>e</span><span>s</span><span>t</span><span>r</span><span>a</span> 
+      <span>F</span><span>i</span><span>l</span><span>o</span><span>s</span><span>o</span><span>f</span><span>í</span><span>a</span>
+    </h2>
+    <div class="premium-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod, nisi et convallis elementum, 
+      nisi sapien fermentum dolor, a tristique libero ligula nec nisl.
+    </div>
+    <div class="premium-separator"></div>
+  </div>
+</div>
 
 <!-- =========================
-     CATEGORÍAS
+     CATEGORÍAS + CALESITA
 ========================= -->
-<section class="categories-row">
-  <a href="pulseras.html" class="cat-box">
-    <img src="foto 1.jpeg" alt="Braccialetto">
-    <div class="hover-title">BRACCIALETTO</div>
-  </a>
 
-  <a href="anillos.html" class="cat-box">
-    <img src="foto 2.jpeg" alt="Anello">
-    <div class="hover-title">ANELLO</div>
-  </a>
+<section class="categories-container">
 
-  <a href="aritos.html" class="cat-box">
-    <img src="foto 3.jpeg" alt="Orecchino">
-    <div class="hover-title">ORECCHINO</div>
-  </a>
+  <!-- CALESITA ÚNICA -->
+  <div class="carousel-3d">
+    <img src="foto 1.jpeg" class="item" alt="Foto 1">
+    <img src="foto 2.jpeg" class="item" alt="Foto 2">
+    <img src="foto 3.jpeg" class="item" alt="Foto 3">
+    <img src="foto 4.jpeg" class="item" alt="Foto 4">
+  </div>
 
-  <a href="collares.html" class="cat-box">
-    <img src="foto 4.jpeg" alt="Collana">
-    <div class="hover-title">COLLANA</div>
-  </a>
+  <!-- CATEGORÍAS -->
+  <div class="categories-row">
+
+    <a href="pulseras.html" class="cat-title">BRACCIALETTO</a>
+    <a href="anillos.html" class="cat-title">ANELLO</a>
+    <a href="aritos.html" class="cat-title">ORECCHINO</a>
+    <a href="collares.html" class="cat-title">COLLANA</a>
+
+  </div>
+
 </section>
+
 
 <!-- =========================
      PANELS
@@ -134,4 +188,5 @@ TOP BAR CON SELECTOR DE IDIOMA
 ========================= -->
 <script src="script.js"></script>
 </body>
+
 </html>
