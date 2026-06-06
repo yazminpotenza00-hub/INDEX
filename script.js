@@ -46,58 +46,45 @@ if (sideMenu && overlay) {
   overlay.addEventListener('click', closeMenu);
 }
 
-// =========================
-// CALESITA 3D ÚNICA CON AUTOPLAY
-// =========================
+// carrusel
 
-const carousel = document.querySelector('.carousel-3d');
-if (carousel) {
 
-  const items = carousel.querySelectorAll('.item');
-  let positions = [0,1,2,3]; // orden circular
-  let isHovering = false;    // detecta si el mouse está sobre la calesita
+  const track = document.querySelector(".carousel-track");
+  const items = [...document.querySelectorAll(".carousel-item")];
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
 
-  function render() {
+  let index = 0;
+
+  function updatePositions() {
+    const total = items.length;
+
     items.forEach((item, i) => {
-      item.className = "item pos-" + positions[i];
+      item.className = "carousel-item"; // reset
+
+      if (i === index) {
+        item.classList.add("pos-0");
+      } else if (i === (index + 1) % total) {
+        item.classList.add("pos-1");
+      } else if (i === (index + 2) % total) {
+        item.classList.add("pos-2");
+      } else if (i === (index + 3) % total) {
+        item.classList.add("pos-3");
+      }
     });
   }
-  render();
 
-  // Hover sobre cada imagen
-  items.forEach((item, index) => {
-    item.addEventListener('mouseenter', () => {
-      isHovering = true;      // detiene autoplay
-      const pos = positions[index];
-      if (pos === 0) return; // ya está al frente
+  nextBtn.onclick = () => {
+    index = (index + 1) % items.length;
+    updatePositions();
+  };
 
-      // Movimiento inteligente
-      if (pos === 1) positions.push(positions.shift());
-      else if (pos === 3) positions.unshift(positions.pop());
-      else if (pos === 2) { positions.push(positions.shift()); positions.push(positions.shift()); }
+  prevBtn.onclick = () => {
+    index = (index - 1 + items.length) % items.length;
+    updatePositions();
+  };
 
-      render();
-    });
-
-    item.addEventListener('mouseleave', () => {
-      isHovering = false;    // reinicia autoplay
-    });
-  });
-
-  // =========================
-  // AUTOPLAY
-  // =========================
-  setInterval(() => {
-    if (!isHovering) {
-      // gira a la izquierda automáticamente
-      positions.push(positions.shift());
-      render();
-    }
-  }, 3000); // cada 3 segundos
-}
-
-
-
+  updatePositions();
 // =========================
 // SCROLL ANIMATIONS PARA PANELS
 // =========================

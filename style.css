@@ -361,7 +361,7 @@ position: fixed;
 ========================= */
 .categories-container {
   padding: 80px 0;
-  background: #c7c7c7c9;   /* gris oscuro en lugar de negro puro */
+  background: #c7c7c7c9; 
   text-align: center;
 }
 
@@ -388,70 +388,169 @@ position: fixed;
   color: #d4af37;
   transform: scale(1.1);
 }
+
 /* =========================
-   CALESITA ÚNICA
+   SECTION
 ========================= */
-.carousel-3d {
+.carousel-inspiration-section {
+  padding: 40px 0;
+  background: rgba(146, 110, 110, 0.11);
   position: relative;
-  width: 70vw;                 /* un poco más ancho */
-  height: 20vw;                /* mantiene proporción agradable */
-  margin: auto;
-  perspective: 2200px;         /* más profundidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+.carousel-inspiration {
+  width: 60vw;
+  height: 60vh;
+  perspective: 1500px;
+  position: relative;
+}
+
+.carousel-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
   transform-style: preserve-3d;
 }
 
-.carousel-3d .item {
+/* =========================
+   ITEMS
+========================= */
+.carousel-item {
+  width: 22%;
+  height: 60%;
   position: absolute;
-  width: 20%;                  /* imágenes más pequeñas y completas */
-  height: auto;                
-  max-height: 100%;
-  object-fit: contain;         /* mantiene proporción */
-  border-radius: 14px;
+  top: 20%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  transition: all 0.8s ease;
+  opacity: 0.4;
+  border-radius: 15px;
+  overflow: hidden;
   cursor: pointer;
-  transition: transform 0.9s ease, opacity 0.9s ease, filter 0.9s ease, z-index 0.9s ease;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* =========================
-   POSICIONES CON PERSPECTIVA PROFUNDA
+   TEXTO
 ========================= */
+.item-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-shadow: 0 0 10px #d4af37;
+}
 
-/* Frente */
-.carousel-3d .item.pos-0 {
-  transform: translateZ(280px) scale(1.05);
+.pos-0 .item-text {
+  opacity: 1;
+}
+
+/* =========================
+   POSICIONES 3D
+========================= */
+.pos-0 {
+  transform: translateX(-50%) translateZ(200px) scale(1);
+  opacity: 1;
   z-index: 10;
-  opacity: 1;
-  filter: drop-shadow(0 20px 35px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
 }
 
-/* IZQUIERDA */
-.carousel-3d .item.pos-1 {
-  transform: rotateY(-55deg) translateX(-300px) translateZ(60px) scale(0.9);
-  opacity: 0.75;
-  z-index: 5;
-  filter: brightness(0.85);
+.pos-1 {
+  transform: translateX(calc(-50% + 260px)) rotateY(-45deg) translateZ(50px) scale(0.8);
+  opacity: 0.7;
+  z-index: 6;
 }
 
-/* ATRÁS */
-.carousel-3d .item.pos-2 {
-  transform: translateZ(-280px) scale(0.75);
+.pos-2 {
+  transform: translateX(-50%) translateZ(-260px) scale(0.6);
   opacity: 0.4;
-  z-index: 1;
-  filter: brightness(0.6) blur(1px);
+  z-index: 2;
+  filter: blur(1px);
 }
 
-/* DERECHA */
-.carousel-3d .item.pos-3 {
-  transform: rotateY(55deg) translateX(300px) translateZ(60px) scale(0.9);
-  opacity: 0.75;
-  z-index: 5;
-  filter: brightness(0.85);
+.pos-3 {
+  transform: translateX(calc(-50% - 260px)) rotateY(45deg) translateZ(50px) scale(0.8);
+  opacity: 0.7;
+  z-index: 6;
 }
 
-/* Hover */
-.carousel-3d .item:hover {
-  opacity: 1;
-  filter: brightness(1);
+/* =========================
+   BOTONES
+========================= */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000000;
+  border: none;
+  padding: 14px 18px;
+  font-size: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #ffffff71;
+  transition: background 0.3s ease;
 }
+
+.carousel-btn:hover {
+  background: #6d675352;
+}
+
+.prev {
+  left: 8%;
+}
+
+.next {
+  right: 8%;
+}
+
+/* =========================
+   CATEGORÍAS
+========================= */
+.categories-container {
+  padding: 80px 0;
+  background: #c7c7c7c9;
+  text-align: center;
+}
+
+.categories-row {
+  margin-top: 55px;
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+}
+
+.cat-title {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  letter-spacing: 10px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cat-title:hover {
+  color: #d4af37;
+  transform: scale(1.1);
+}
+
 
 /* =========================
    BLOQUE INTERMEDIO PREMIUM
@@ -525,46 +624,227 @@ position: fixed;
   opacity: 1;
 }
 
-/* =========================
-   PANELS
-========================= */
-.panel {
-  position: relative;
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
-  padding: 0 10vw;
+/* <!-- ========================= NEW PANELS LAYOUT ========================= --> */
+
+body {
+background: #000000;
+margin: 0;
+font-family: 'Montserrat', sans-serif;
 }
 
-.panel.enhanced {
-  justify-content: space-between;
-  gap: 100px;
+
+.panel-wrapper {
+background: #161616e7;
+display: flex;
+flex-direction: column;
+gap: 60px;
+padding: 40px 5vw;
+border-radius: 25px;
 }
 
-.panel.enhanced .panel-img {
-  width: 40vw;
-  height: auto;
-  object-fit: contain;
+.panel-box {
+background: #3b3939;
+border: 2px solid #d4af37;
+border-radius: 20px;
+padding: 40px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 40px;
+transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.panel-content.decorated {
-  display: flex;
-  align-items: center;
-  gap: 18px;
+
+.panel-box:hover {
+transform: translateY(-6px);
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.678);
 }
+
+
+.panel-text {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
 
 .gold-line {
-  width: 4px;
-  height: 70px;
-  background: linear-gradient(to bottom, #d4af37, #8a6c1f);
-  border-radius: 10px;
+width: 5px;
+height: 80px;
+background: linear-gradient(to bottom, #d4af37, #8a6c1f);
+border-radius: 10px;
+}
+
+
+.panel-img {
+width: 30%;
+border-radius: 10px;
+object-fit: cover;
+}
+
+
+/* BUTTON: CREATE YOUR OWN JEWELRY */
+.custom-btn {
+margin: 50px auto;
+display: block;
+padding: 20px 40px;
+border-radius: 30px;
+border: none;
+font-size: 20px;
+background: linear-gradient(135deg, #d4af37, #8a6c1f);
+color: rgb(255, 255, 255);
+cursor: pointer;
+transition: 0.4s ease;
+font-weight: 600;
+}
+
+
+.custom-btn:hover {
+transform: scale(1.05);
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* COLLECTION BUTTONS */
+.collections-container {
+margin-top: 60px;
+padding: 20px 0;
+display: flex;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+
+.collection-btn {
+padding: 18px 26px;
+border-radius: 18px;
+border: 2px solid #8a6c1f;
+background: white;
+cursor: pointer;
+font-size: 17px;
+font-weight: 600;
+transition: 0.4s ease;
+}
+
+
+.collection-btn:hover {
+background: #ebc75bd0;
+transform: translateY(-4px);
 }
 
 /* =========================
    FOOTER
 ========================= */
+
 footer {
   text-align: center;
   padding: 40px 0;
   opacity: 0.8;
+}
+.footer-premium {
+  background: #fff;
+  padding: 60px 5vw;
+  border-top: 1px solid #d4af37;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.footer-column h3 {
+  font-size: 15px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.footer-column a {
+  display: block;
+  color: #555;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer-column a:hover {
+  color: #000;
+}
+
+.social-row a {
+  margin-right: 15px;
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+}
+/* ============================
+   PESTAÑA LATERAL CHI SIAMO – FUNCIONAL
+============================ */
+
+/* Contenedor principal */
+.side-tab {
+  position: fixed;
+  right: -450px;       /* Oculto inicialmente */
+  top: 25%;
+  width: 450px;
+  background: #fff;
+  border-left: 2px solid #d4af37;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.15);
+  border-radius: 15px 0 0 15px;
+  overflow: visible !important; /* evita cortes */
+  transition: right 0.6s ease;
+  z-index: 9999;
+}
+
+/* Despliegue al pasar mouse */
+.side-tab:hover {
+  right: 0;
+}
+
+/* Etiqueta vertical */
+.tab-label {
+  position: absolute;
+  left: -120px;
+  top: 40%;
+  transform: rotate(-90deg);
+  background: #d4af37;
+  color: #fff;
+  padding: 12px 25px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Cambio de color en hover */
+.side-tab:hover .tab-label {
+  background: #b8922d;
+}
+
+/* Contenido de la pestaña */
+.side-tab .tab-content {
+  opacity: 1 !important; /* asegura visibilidad */
+  padding: 20px;
+}
+
+/* Imagen dentro de la pestaña */
+.side-tab .tab-image {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 12px;
+  filter: grayscale(25%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* Efecto al pasar el mouse sobre el panel */
+.side-tab:hover .tab-image {
+  filter: grayscale(0%);
+  transform: scale(1.02);
 }
